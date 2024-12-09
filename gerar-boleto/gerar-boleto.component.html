@@ -1,0 +1,25 @@
+<div class="gerar-boleto-container">
+  <h2>Gerar Boleto</h2>
+
+  <div>
+    <h3>Contrato e Parcelas Selecionadas</h3>
+    <p><strong>Contrato:</strong> {{ contrato }}</p>
+    <p><strong>Data de Vencimento:</strong> {{ vencimento | date: 'dd/MM/yyyy' }}</p>
+
+    <ul>
+      <li *ngFor="let divida of dividasSelecionadas">
+        <strong>Descrição:</strong> {{ divida.descricao }}<br>
+        <strong>Valor:</strong> {{ divida.valor | currency }}<br>
+        <strong>Juros:</strong> {{ divida.juros | currency }}
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <p><strong>Total:</strong> {{ total | currency }}</p>
+    <p><strong>Juros Total:</strong> {{ jurosTotal | currency }}</p>
+    <p><strong>Total com Juros:</strong> {{ totalComJuros | currency }}</p>
+  </div>
+
+  <button (click)="gerarBoleto()">Gerar Boleto</button>
+</div>

@@ -1,0 +1,17 @@
+<div class="carrinho">
+  <h3>Carrinho</h3>
+  <p>Data de Vencimento: {{ vencimento | date: 'dd/MM/yyyy' }}</p>
+  <ul>
+    <li *ngFor="let divida of dividas">
+      <label>
+        <input type="checkbox" [(ngModel)]="divida.selecionada" />
+        {{ divida.descricao }} - {{ divida.valor | currency }} - Juros: {{ divida.juros | currency }}
+      </label>
+    </li>
+  </ul>
+  <div>
+    <p><strong>Total:</strong> {{ valorTotal | currency }}</p>
+    <p><strong>Juros Total:</strong> {{ juros | currency }}</p>
+    <p><strong>Total com Juros:</strong> {{ valorTotalComJuros | currency }}</p>
+  </div>
+</div>

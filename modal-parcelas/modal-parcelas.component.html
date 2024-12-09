@@ -1,0 +1,25 @@
+<div class="modal-backdrop">
+  <div class="modal-content">
+    <button class="modal-close" (click)="fechar.emit()">×</button>
+    <h3>Selecione as Parcelas</h3>
+    <ul>
+      <li *ngFor="let divida of dividas">
+        <label>
+          <input
+            type="checkbox"
+            [(ngModel)]="divida.selecionada"
+            (change)="filtrarDividas()"
+            [disabled]="dividas.length === 1"
+          />
+          {{ divida.descricao }} - {{ divida.valor | currency }}
+        </label>
+      </li>
+    </ul>
+    <!-- Passa dividasSelecionadas para o carrinho -->
+    <app-carrinho
+      [dividas]="dividasSelecionadas"
+      [vencimento]="vencimento">
+    </app-carrinho>
+    <button (click)="salvar()">Salvar</button>
+  </div>
+</div>

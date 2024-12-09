@@ -1,0 +1,18 @@
+<div class="modal-backdrop">
+  <div class="modal-content">
+    <button class="modal-close" (click)="fechar.emit()">×</button>
+    <h3>Escolha a Data de Pagamento</h3>
+    <select [(ngModel)]="vencimento" (ngModelChange)="mudarData()">
+      <option [value]="hoje">Hoje</option>
+      <option [value]="proximoDiaUtil">Próximo Dia Útil</option>
+    </select>
+
+    <!-- Exibir o Carrinho dentro do Modal -->
+    <app-carrinho
+      [dividas]="dividasSelecionadas"
+      [vencimento]="vencimento">
+    </app-carrinho>
+
+    <button (click)="salvarData()">Salvar</button>
+  </div>
+</div>

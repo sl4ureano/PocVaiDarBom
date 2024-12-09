@@ -1,0 +1,35 @@
+<div class="main-container">
+  <h2>Escolha suas Dívidas e Data de Pagamento</h2>
+
+  <!-- Condição para exibir "Hoje" ou "Próximo Dia Útil" dependendo da data selecionada -->
+  <button (click)="abrirModalData()">
+    {{ vencimento === hoje ? 'Hoje' : 'Próximo Dia Útil' }}
+  </button>
+
+  <button (click)="abrirModalParcelas()">{{ dividasSelecionadas.length >= 2 ? dividasSelecionadas.length + ' parcelas' : dividasSelecionadas.length + ' parcela' }}</button>
+
+
+  <app-carrinho
+    [dividas]="dividasSelecionadas"
+    [vencimento]="vencimento">
+  </app-carrinho>
+</div>
+
+<app-modal-data
+  [dividasSelecionadas]="dividasSelecionadas"
+  [hoje]="hoje"
+  *ngIf="modalDataAberto"
+  [feriados]="feriados"
+  (fechar)="modalDataAberto = false"
+  (salvar)="confirmarSelecao($event)">
+</app-modal-data>
+
+<app-modal-parcelas
+  *ngIf="modalParcelasAberto"
+  [dividas]="dividas"
+  [vencimento]="vencimento"
+  (fechar)="confirmarSelecao($event)">
+</app-modal-parcelas>
+
+  <!-- Botão Continuar -->
+  <button (click)="continuar()">Continuar</button>
