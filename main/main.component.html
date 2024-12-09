@@ -33,3 +33,16 @@
 
   <!-- Botão Continuar -->
   <button (click)="continuar()">Continuar</button>
+
+
+
+
+
+  <button (click)="abrirModal()">Abrir Modal</button>
+
+<app-fullscreenmodal
+  [aberto]="modalAberto"
+  (fechar)="fecharModal()">
+  <h2>Conteúdo do Modal</h2>
+  <p>Aqui você pode colocar qualquer conteúdo para exibir no modal.</p>
+</app-fullscreenmodal>

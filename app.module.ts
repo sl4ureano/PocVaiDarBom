@@ -9,6 +9,7 @@ import { ModalDataComponent } from './modal-data/modal-data.component';
 import { ModalParcelasComponent } from './modal-parcelas/modal-parcelas.component';
 import { FormsModule } from '@angular/forms';
 import { GerarBoletoComponent } from './gerar-boleto/gerar-boleto.component';
+import { FullscreenmodalComponent } from './fullscreenmodal/fullscreenmodal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GerarBoletoComponent } from './gerar-boleto/gerar-boleto.component';
     CarrinhoComponent,
     ModalDataComponent,
     ModalParcelasComponent,
-    GerarBoletoComponent
+    GerarBoletoComponent,
+    FullscreenmodalComponent
   ],
   imports: [
     BrowserModule,

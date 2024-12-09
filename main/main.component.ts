@@ -21,6 +21,10 @@ export class MainComponent implements OnInit {
   modalParcelasAberto: boolean = false;
   contrato:string = ''
 
+
+  modalAberto: boolean = false;
+
+
   constructor(
     private businessService: BusinessService,
     private debtService: DebtService,
@@ -103,5 +107,18 @@ export class MainComponent implements OnInit {
     this.router.navigate(['/gerar-boleto', {
       dados: JSON.stringify({ dividas: this.dividasSelecionadas, vencimento: this.vencimento, contrato: this.contrato })
     }]);
+  }
+
+
+
+
+
+
+  abrirModal() {
+    this.modalAberto = true;
+  }
+
+  fecharModal() {
+    this.modalAberto = false;
   }
 }

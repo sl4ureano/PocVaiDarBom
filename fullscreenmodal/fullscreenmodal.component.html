@@ -1,0 +1,8 @@
+<div class="full-screen-modal" *ngIf="aberto">
+  <div class="modal-header">
+    <button class="close-button" (click)="fecharModal()">×</button>
+  </div>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+</div>
